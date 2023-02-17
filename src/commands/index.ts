@@ -12,7 +12,7 @@ import {
 } from "../config";
 import { getLicenses, getLicense } from "../api";
 import { replaceAuthor, replaceYear } from "../utils";
-import { LicenseItem, License } from "../types";
+import { LicenseItem, License, CustomLicense } from "../types";
 
 /**
  * Uncommon licenses.
@@ -43,6 +43,30 @@ export const uncommonLicenses: LicenseItem[] = [
     url: "https://api.github.com/licenses/wtfpl",
     node_id: "MDc6TGljZW5zZTE4",
     html_url: "http://choosealicense.com/licenses/wtfpl/",
+  },
+];
+
+/**
+ * APGL old licenses.
+ * These are offsite from GitHub and are personal for use with Dalamud.
+ */
+/* eslint-disable @typescript-eslint/naming-convention */
+export const oldApglLicenses: LicenseItem[] = [
+  {
+    key: "agpl-1.0",
+    name: "GNU Affero General Public License v1.0",
+    spdx_id: "AGPL-1.0-only",
+    url: "https://scancode-licensedb.aboutcode.org/agpl-1.0.json",
+    node_id: "MDc6TGljZW5zZTE2",
+    html_url: "https://scancode-licensedb.aboutcode.org/agpl-1.0.html",
+  },
+  {
+    key: "agpl-2.0",
+    name: "GNU Affero General Public License v2.0",
+    spdx_id: "LicenseRef-scancode-agpl-2.0",
+    url: "https://scancode-licensedb.aboutcode.org/agpl-2.0.json",
+    node_id: "MDc6TGljZW5zZTE3",
+    html_url: "https://scancode-licensedb.aboutcode.org/agpl-2.0.html",
   },
 ];
 
@@ -95,6 +119,16 @@ const showLicenses = async (
       ])
       .concat(
         uncommonLicenses.map((l) => licenseToQuickPickItem(l, defaultKey))
+      )
+      .concat([
+        {
+          label: "Custom licenses",
+          key: "separator",
+          kind: vscode.QuickPickItemKind.Separator,
+        },
+      ])
+      .concat(
+        oldApglLicenses.map((l) => licenseToQuickPickItem(l, defaultKey))
       ),
     options
   );
@@ -223,7 +257,7 @@ const addLicense = async (license: License, multiple: boolean) => {
     let year: string =
       vscode.workspace.getConfiguration("license").get("year") ?? "auto";
 
-    let text = license.body;
+    let text = license.body ? license.body : (license as CustomLicense).text;
 
     if (year !== "") {
       if (year === "auto") {

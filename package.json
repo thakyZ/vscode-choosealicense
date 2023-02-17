@@ -158,15 +158,7 @@
     }
   },
   "activationEvents": [
-    "onCommand:license.chooseLicense",
-    "onCommand:license.addDefaultLicense",
-    "onCommand:license.chooseMultipleLicenses",
-    "onCommand:license.setDefaultLicense",
-    "onCommand:license.setAuthor",
-    "onCommand:license.setYear",
-    "onCommand:license.setExtension",
-    "onCommand:license.setFilename",
-    "onCommand:license.setToken"
+    "onStartupFinished"
   ],
   "dependencies": {
     "@octokit/request-error": "^3.0.2",
@@ -188,7 +180,7 @@
     "glob": "^8.1.0",
     "mocha": "^10.2.0",
     "ovsx": "^0.8.0",
-    "rimraf": "^4.0.7",
+    "rimraf": "3.0.2",
     "typescript": "^4.9.4"
   },
   "engines": {
