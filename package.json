@@ -1,5 +1,5 @@
 {
-  "name": "vscode-choosealicense",
+  "name": "vscode-choosealicense_z",
   "displayName": "Choose a License",
   "version": "0.9.2",
   "description": "Choose a license for your project in VS Code",
@@ -26,11 +26,11 @@
   "main": "./out/extension.js",
   "browser": "./out/web/extension.js",
   "scripts": {
-    "clean": "rimraf coverage out *.vsix",
+    "clean": "rimraf coverage out --glob *.vsix",
     "compile": "yarn run lint && yarn run clean && yarn run esbuild && yarn run esbuild-web",
     "coverage": "c8 yarn test",
     "esbuild": "esbuild ./src/extension.ts --bundle --external:vscode --platform=node --tsconfig=./tsconfig.json --log-level=info --color=true --format=cjs --target=es2017 --minify --outfile=./out/extension.js",
-    "esbuild-web": "esbuild ./src/extension.ts --bundle --external:vscode --tsconfig=./tsconfig.json --log-level=info --color=true --format=cjs --minify --outfile=./out/web/extension.js",
+    "esbuild-web": "esbuild ./src/extension.ts --bundle --external:vscode --platform=node --tsconfig=./tsconfig.json --log-level=info --color=true --format=cjs --minify --outfile=./out/web/extension.js",
     "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. .",
     "lint": "eslint src --ext ts",
     "prepackage": "yarn run compile",
