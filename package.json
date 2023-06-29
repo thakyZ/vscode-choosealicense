@@ -9,20 +9,27 @@
   "keywords": [
     "license"
   ],
-  "homepage": "https://github.com/ultram4rine/vscode-choosealicense",
+  "homepage": "https://github.com/thakyz/vscode-choosealicense",
   "bugs": {
-    "url": "https://github.com/ultram4rine/vscode-choosealicense/issues"
+    "url": "https://github.com/thakyz/vscode-choosealicense/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ultram4rine/vscode-choosealicense"
+    "url": "https://github.com/thakyz/vscode-choosealicense"
   },
   "license": "MIT",
   "author": {
-    "name": "ultram4rine",
-    "email": "ultramarine730@gmail.com"
+      "name": "ultram4rine",
+      "email": "ultramarine730@gmail.com"
   },
-  "publisher": "ultram4rine",
+  "contributors": [
+    {
+      "name": "Neko Boi Nick",
+      "email": "950594+thakyZ@users.noreply.github.com",
+      "url": "https://github.com/thakyz"
+    }
+  ],
+  "publisher": "thakyz",
   "main": "./out/extension.js",
   "browser": "./out/web/extension.js",
   "scripts": {
