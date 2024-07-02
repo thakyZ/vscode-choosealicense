@@ -165,7 +165,7 @@
     }
   },
   "activationEvents": [
-    "onStartupFinished"
+    "onStartupFinished",
     "onCommand:license.chooseLicense",
     "onCommand:license.addDefaultLicense",
     "onCommand:license.chooseMultipleLicenses",
