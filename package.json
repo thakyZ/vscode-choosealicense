@@ -1,7 +1,7 @@
 {
   "name": "vscode-choosealicense",
   "displayName": "Choose a License",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Choose a license for your project in VS Code",
   "categories": [
     "Other"
@@ -34,17 +34,17 @@
   "browser": "./out/web/extension.js",
   "scripts": {
     "clean": "rimraf coverage out --glob *.vsix",
-    "compile": "yarn run lint && yarn run clean && yarn run esbuild && yarn run esbuild-web",
-    "coverage": "c8 yarn test",
+    "compile": "npm run lint && npm run clean && npm run esbuild && npm run esbuild-web",
+    "coverage": "c8 npm test",
     "esbuild": "esbuild ./src/extension.ts --bundle --external:vscode --platform=node --tsconfig=./tsconfig.json --log-level=info --color=true --format=cjs --target=es2017 --minify --outfile=./out/extension.js",
     "esbuild-web": "esbuild ./src/extension.ts --bundle --external:vscode --platform=node --tsconfig=./tsconfig.json --log-level=info --color=true --format=cjs --minify --outfile=./out/web/extension.js",
     "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. .",
     "lint": "eslint src --ext ts",
-    "prepackage": "yarn run compile",
-    "package": "vsce package --yarn",
+    "prepackage": "npm run compile",
+    "package": "vsce package",
     "publish:ovsx": "ovsx publish -p $OVSX_PAT",
-    "publish:vsce": "vsce publish --yarn -p $VSCE_PAT -i",
-    "pretest": "yarn run lint && yarn run clean && yarn run test-compile",
+    "publish:vsce": "vsce publish -p $VSCE_PAT -i",
+    "pretest": "npm run lint && npm run clean && npm run test-compile",
     "test": "node ./out/test/runTest.js",
     "test-compile": "tsc --lib DOM -p ./"
   },
@@ -166,29 +166,38 @@
   },
   "activationEvents": [
     "onStartupFinished"
+    "onCommand:license.chooseLicense",
+    "onCommand:license.addDefaultLicense",
+    "onCommand:license.chooseMultipleLicenses",
+    "onCommand:license.setDefaultLicense",
+    "onCommand:license.setAuthor",
+    "onCommand:license.setYear",
+    "onCommand:license.setExtension",
+    "onCommand:license.setFilename",
+    "onCommand:license.setToken"
   ],
   "dependencies": {
-    "@octokit/request-error": "^6.1.1",
-    "@octokit/rest": "^20.1.0"
+    "@octokit/request-error": "^5.0.1",
+    "@octokit/rest": "^20.0.2"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.6",
-    "@types/node": "^20.12.7",
+    "@types/node": "^20.11.19",
     "@types/vscode": "^1.43.0",
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
-    "@typescript-eslint/parser": "^7.8.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
     "@vscode/test-electron": "^2.3.9",
-    "@vscode/test-web": "^0.0.54",
-    "@vscode/vsce": "^2.26.0",
+    "@vscode/test-web": "^0.0.51",
+    "@vscode/vsce": "^2.23.0",
     "c8": "^9.1.0",
-    "esbuild": "^0.20.2",
-    "eslint": "^9.1.1",
-    "glob": "^10.3.12",
-    "mocha": "^10.4.0",
-    "ovsx": "^0.9.1",
+    "esbuild": "^0.20.1",
+    "eslint": "^8.56.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.3.0",
+    "ovsx": "^0.8.3",
     "rimraf": "^5.0.5",
-    "typescript": "^5.4.5"
+    "typescript": "^5.3.3"
   },
   "engines": {
     "vscode": "^1.43.0"

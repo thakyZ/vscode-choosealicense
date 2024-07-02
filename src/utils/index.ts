@@ -14,6 +14,7 @@ export const replaceAuthor = (author: string, key: string, text: string) => {
     case "bsd-2-clause":
     case "bsd-3-clause":
     case "mit":
+    case "bsd-4-clause":
     case "isc":
       text = text.replace(/\[fullname]/g, author);
       break;
@@ -54,6 +55,7 @@ export const replaceYear = (year: string, key: string, text: string) => {
     case "bsd-2-clause":
     case "bsd-3-clause":
     case "mit":
+    case "bsd-4-clause":
     case "isc":
       text = text.replace(/\[year]/g, year);
       break;
