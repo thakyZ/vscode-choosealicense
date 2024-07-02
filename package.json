@@ -1,5 +1,5 @@
 {
-  "name": "vscode-choosealicense-nekoboinick",
+  "name": "vscode-choosealicense",
   "displayName": "Choose a License",
   "version": "0.9.3",
   "description": "Choose a license for your project in VS Code",
@@ -29,7 +29,7 @@
       "email": "ultramarine730@gmail.com"
     }
   ],
-  "publisher": "thakyz",
+  "publisher": "nekoboinick",
   "main": "./out/extension.js",
   "browser": "./out/web/extension.js",
   "scripts": {
@@ -229,5 +229,8 @@
   "galleryBanner": {
     "color": "#212121",
     "theme": "dark"
+  },
+  "__metadata": {
+    "publisherDisplayName": "Neko Boi Nick"
   }
 }
