@@ -2,11 +2,11 @@ version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
+    target-branch: "personal"
     schedule:
       interval: "daily"
-    ignore:
-      - dependency-name: "@types/vscode"
   - package-ecosystem: "github-actions"
     directory: "/"
+    target-branch: "personal"
     schedule:
       interval: "daily"
