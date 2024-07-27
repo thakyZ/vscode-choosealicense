@@ -2,6 +2,7 @@ name: CI/CD
 
 on:
   push:
+    branches: "personal"
     paths-ignore:
       - ".devcontainer/**"
       - ".github/ISSUE_TEMPLATE/**"
@@ -15,6 +16,7 @@ on:
       - "*.md"
       - "LICENSE"
   pull_request:
+    branches: "personal"
     paths-ignore:
       - ".devcontainer/**"
       - ".github/ISSUE_TEMPLATE/**"
